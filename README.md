@@ -62,6 +62,7 @@ Final 3D Reconstruction
 
 # Repository Structure
 
+```
 Agricultural-3D-Reconstruction/
 │
 ├── README.md
@@ -88,7 +89,7 @@ Agricultural-3D-Reconstruction/
 ├── images/
 │
 └── docs/
-
+```
 
 ## Folder Description
 
