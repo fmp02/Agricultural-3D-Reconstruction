@@ -3,7 +3,7 @@
 ![ROS2](https://img.shields.io/badge/ROS2-Compatible-green)
 ![Open3D](https://img.shields.io/badge/Open3D-3D%20Reconstruction-orange)
 
-![Final Reconstruction](images/Img1.png)
+![Final Reconstruction](images/Img4.png)
 ## Overview
 
 This project presents a complete pipeline for the 3D reconstruction of an agricultural environment using a mobile robot equipped with an RGB-D camera.
