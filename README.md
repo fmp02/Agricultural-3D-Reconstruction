@@ -155,11 +155,15 @@ pip install -r requirements.txt
 
 ## Required ROS2 packages
 
+The acquisition node relies on a ROS2 installation and requires the following packages:
+
 - rclpy
 - sensor_msgs
 - geometry_msgs
 - nav_msgs
 - cv_bridge
+
+Ensure that your ROS2 environment is properly configured before running the acquisition node.
 
 ---
 
