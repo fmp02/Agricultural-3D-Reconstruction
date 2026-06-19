@@ -1,5 +1,9 @@
 # Agricultural 3D Reconstruction using ROS2 and Open3D
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![ROS2](https://img.shields.io/badge/ROS2-Compatible-green)
+![Open3D](https://img.shields.io/badge/Open3D-3D%20Reconstruction-orange)
 
+![Final Reconstruction](images/final_reconstruction.png)
 ## Overview
 
 This project presents a complete pipeline for the 3D reconstruction of an agricultural environment using a mobile robot equipped with an RGB-D camera.
@@ -117,9 +121,9 @@ Contains an example of the generated dataset:
 #### reconstruction_output_example/
 
 Contains an example of the final reconstructed point cloud:
-
+```
 fusion_final.ply
-
+```
 
 ### images/
 
@@ -162,11 +166,11 @@ pip install -r requirements.txt
 # Data Acquisition
 
 The data acquisition stage is implemented by the ROS2 node:
-
+```
 data_collector.py
+```
 
-
-The node is designed for a LIMO mobile robot equipped with an Orbbec RGB-D camera operating in a simulated agricultural environment.
+The node is designed for a LIMO mobile robot equipped with an Orbbec RGB-D camera operating in a simulated agricultural environment. We used a CoppeliaSim scene. 
 
 Its main purpose is to autonomously drive the robot along a straight trajectory through the crop row while simultaneously collecting the data required for the 3D reconstruction process.
 
@@ -263,9 +267,20 @@ After processing all frames:
 
 ## Step 1
 
-Launch the simulation environment.
+Prepare a LIMO mobile robot equipped with an Orbbec RGB-D camera.
 
-The mobile robot equipped with an RGB-D camera navigates through the agricultural scene.
+The data acquisition node is designed to operate on a LIMO platform and requires the following data streams:
+
+- RGB images;
+- depth maps;
+- robot odometry.
+
+In this project, the proposed pipeline was validated in a CoppeliaSim agricultural scenario developed during the laboratory activities. The simulation environment consists of:
+
+- a LIMO mobile robot;
+- an agricultural field composed of two parallel crop rows simulated with CoppeliaSim.
+
+However, the acquisition node is not tied to the simulation and can be executed on a real LIMO robot provided that the required sensor topics are available.
 
 ## Step 2
 
