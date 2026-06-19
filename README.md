@@ -63,7 +63,6 @@ Final 3D Reconstruction
 # Repository Structure
 
 Agricultural-3D-Reconstruction/
-
 │
 ├── README.md
 ├── LICENSE
@@ -76,7 +75,6 @@ Agricultural-3D-Reconstruction/
 │   └── reconstruction3D.py
 │
 ├── example_output/
-│   │
 │   ├── acquisition_output_example/
 │   │   └── reconstruction_data/
 │   │       ├── color/
@@ -164,34 +162,38 @@ pip install -r requirements.txt
 
 The data acquisition stage is implemented by the ROS2 node:
 
-```
 data_collector.py
-```
+
+
+The node is designed for a LIMO mobile robot equipped with an Orbbec RGB-D camera operating in a simulated agricultural environment.
+
+Its main purpose is to autonomously drive the robot along a straight trajectory through the crop row while simultaneously collecting the data required for the 3D reconstruction process.
 
 The node performs two main tasks.
 
 ## Robot Navigation
 
-The robot autonomously moves towards a predefined target.
+The robot autonomously moves through the agricultural field following a straight path towards a predefined target position.
 
 The control algorithm:
 
-- computes the target direction;
-- aligns the robot;
-- moves forward;
+- computes the direction of the target;
+- aligns the robot with the desired trajectory;
+- moves the robot forward along the crop row;
+- continuously updates the robot orientation;
 - stops when the destination is reached.
 
 ## Data Collection
 
-During navigation, the node acquires:
+During navigation, the node simultaneously acquires:
 
-- RGB images;
+- RGB images from the Orbbec RGB-D camera;
 - depth maps;
-- robot poses.
+- robot poses obtained from odometry.
 
-One frame is stored every three control iterations.
+To reduce redundant information, one frame is stored every three control loop iterations.
 
-Camera intrinsic parameters are also saved for the reconstruction stage.
+The camera intrinsic parameters are also saved and later used during the 3D reconstruction stage.
 
 ---
 
